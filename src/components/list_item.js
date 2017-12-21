@@ -22,16 +22,19 @@ export default props => {
       <div style={complete ? listStyle : {}} className="col s4">
         {props.item.title}
       </div>
+      <div style={complete ? listStyle : {}} className="col s4">
+        {props.item.details}
+      </div>
       <div className="col s5 push-s6">
         <Modal
-          callback={() => props.delete(props.index)}
+          callback={() => props.delete(props.item._id)}
           text={modalMessage}
           className="btn btn-floating red"
         >
           <i className="material-icons">delete_forever</i>
         </Modal>
         <button
-          onClick={() => props.complete(props.index)}
+          onClick={() => props.complete(props.item._id)}
           className={"btn btn-floating " + `${complete ? "yellow" : "green"}`}
         >
           <i className="material-icons">{complete ? "undo" : "check"}</i>
